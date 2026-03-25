@@ -28,19 +28,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Open PR for generated docs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git config pull.rebase false
-          branch="automation/docs-update-${GITHUB_RUN_ID}"
-          git checkout -b "$branch"
-          git add src/**/README.md
-          if git commit -m "Automated docs update [skip ci]"; then
-            git push origin "$branch"
-            gh pr create --title "Automated docs update" --body "Regenerated feature docs via release workflow."
-          else
-            echo "No documentation changes detected; skipping PR creation."
-          fi
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Automated docs update [skip ci]
+          branch: automation/docs-update
+          delete-branch: true
+          title: Automated docs update
+          body: Regenerated feature docs via release workflow.
+          add-paths: |
+            src/**/README.md
