@@ -169,13 +169,17 @@ ensure_opencode_config() {
         return
     fi
 
-    local home config_dir config_file
+    local home config_dir config_file state_dir
     home="$(eval echo "~$user")"
     config_dir="$home/.config/opencode"
     config_file="$config_dir/opencode.json"
+    state_dir="$home/.local/share/opencode"
 
     mkdir -p "$config_dir"
     chown "$user":"$user" "$config_dir"
+
+    mkdir -p "$state_dir"
+    chown "$user":"$user" "$state_dir"
 
     if [ ! -f "$config_file" ]; then
         log_info "No user config mounted, creating minimal fallback for $user"
