@@ -1,0 +1,26 @@
+{
+    "name": "OpenCode",
+    "id": "opencode",
+    "version": "0.1.0",
+    "description": "Installs the OpenCode CLI, seeds ~/.config/opencode/opencode.json, and ships helper scripts for working with the config.",
+    "options": {
+        "configTemplate": {
+            "type": "string",
+            "default": "{}",
+            "description": "JSON content written to ~/.config/opencode/opencode.json when the file is missing."
+        },
+        "installHelperScripts": {
+            "type": "boolean",
+            "default": true,
+            "description": "Installs the opencode-template helper alongside the main CLI."
+        },
+        "opencodeVersion": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of the OpenCode CLI to install (e.g. 1.0.180). Defaults to the latest GitHub release."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

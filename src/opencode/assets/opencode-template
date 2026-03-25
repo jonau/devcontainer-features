@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TEMPLATE_PATH="/usr/local/share/opencode/default-config.json"
+
+if [ ! -f "$TEMPLATE_PATH" ]; then
+    echo "{}"
+    exit 0
+fi
+
+cat "$TEMPLATE_PATH"

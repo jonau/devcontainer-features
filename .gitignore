@@ -1,0 +1,4 @@
+# Devcontainer feature build artifacts
+dist/
+*.log
+.DS_Store

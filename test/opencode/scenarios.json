@@ -1,0 +1,10 @@
+{
+    "default": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "opencode": {
+                "configTemplate": "{\n  \"testing\": true\n}"
+            }
+        }
+    }
+}
