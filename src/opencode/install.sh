@@ -42,7 +42,7 @@ ensure_packages() {
 
 detect_user() {
     local user="${USERNAME:-automatic}"
-    if [ "$user" = "automatic" ] || [ "$user" = "" ]; then
+    if [ "$user" = "automatic" ] || [ "$user" = "" ] || [ "$user" = "root" ]; then
         for candidate in vscode node codespace "$(id -un 1000 2>/dev/null || true)"; do
             if [ -n "$candidate" ] && id -u "$candidate" >/dev/null 2>&1; then
                 user="$candidate"
@@ -169,14 +169,26 @@ ensure_opencode_config() {
         return
     fi
 
-    local home config_dir config_file state_dir
+    local home config_dir config_file state_dir config_parent state_parent state_share
     home="$(eval echo "~$user")"
     config_dir="$home/.config/opencode"
     config_file="$config_dir/opencode.json"
     state_dir="$home/.local/share/opencode"
+    config_parent="$home/.config"
+    state_parent="$home/.local"
+    state_share="$state_parent/share"
+
+    mkdir -p "$config_parent"
+    chown "$user":"$user" "$config_parent"
 
     mkdir -p "$config_dir"
     chown "$user":"$user" "$config_dir"
+
+    mkdir -p "$state_parent"
+    chown "$user":"$user" "$state_parent"
+
+    mkdir -p "$state_share"
+    chown "$user":"$user" "$state_share"
 
     mkdir -p "$state_dir"
     chown "$user":"$user" "$state_dir"
