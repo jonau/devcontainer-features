@@ -24,7 +24,15 @@
         "ghcr.io/devcontainers/features/common-utils"
     ],
     "mounts": [
-        "source=${localEnv:HOME}/.config/opencode,target=/home/vscode/.config/opencode,type=bind",
-        "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind"
+        {
+            "source": "${localEnv:HOME}/.config/opencode",
+            "target": "/home/vscode/.config/opencode",
+            "type": "bind"
+        },
+        {
+            "source": "${localEnv:HOME}/.local/share/opencode",
+            "target": "/home/vscode/.local/share/opencode",
+            "type": "bind"
+        }
     ]
 }
