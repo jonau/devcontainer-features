@@ -1,7 +1,7 @@
 
 # OpenCode (opencode)
 
-Installs the OpenCode CLI, seeds ~/.config/opencode/opencode.json, and ships helper scripts for working with the config.
+Installs the OpenCode v2 CLI, seeds ~/.config/opencode/opencode.json, and ships helper scripts for working with the config.
 
 ## Example Usage
 
@@ -17,7 +17,7 @@ Installs the OpenCode CLI, seeds ~/.config/opencode/opencode.json, and ships hel
 |-----|-----|-----|-----|
 | configTemplate | JSON content written to ~/.config/opencode/opencode.json when the file is missing. | string | {} |
 | installHelperScripts | Installs the opencode-template helper alongside the main CLI. | boolean | true |
-| opencodeVersion | Version of the OpenCode CLI to install (e.g. 1.0.180). Defaults to the latest GitHub release. | string | latest |
+| opencodeVersion | Version of the OpenCode CLI to install (e.g. 2.0.0). Defaults to the latest release. | string | latest |
 
 
 
