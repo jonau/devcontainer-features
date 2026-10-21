@@ -7,7 +7,7 @@ Installs the OpenCode v2 CLI, seeds ~/.config/opencode/opencode.json, and ships 
 
 ```json
 "features": {
-    "ghcr.io/jonau/devcontainer-features/opencode:0": {}
+    "ghcr.io/jonau/devcontainer-features/opencode:1": {}
 }
 ```
 
@@ -17,7 +17,7 @@ Installs the OpenCode v2 CLI, seeds ~/.config/opencode/opencode.json, and ships 
 |-----|-----|-----|-----|
 | configTemplate | JSON content written to ~/.config/opencode/opencode.json when the file is missing. | string | {} |
 | installHelperScripts | Installs the opencode-template helper alongside the main CLI. | boolean | true |
-| opencodeVersion | Version of the OpenCode CLI to install (e.g. 2.0.0). Defaults to the latest release. | string | latest |
+| opencodeVersion | Version of the OpenCode CLI to install (e.g. 2.1.2). Defaults to the latest release. | string | latest |
 
 
 
