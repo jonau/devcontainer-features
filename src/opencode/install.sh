@@ -103,13 +103,7 @@ needs_baseline_build() {
 resolve_version() {
     local requested="$1"
     if [ -z "$requested" ] || [ "$requested" = "latest" ]; then
-        local latest
-        latest="$(curl -fsSL https://api.github.com/repos/anomalyco/opencode/releases/latest | sed -n 's/.*"tag_name": *"v\([^" ]*\)".*/\1/p' | head -n 1)"
-        if [ -z "$latest" ]; then
-            echo ""
-            return 1
-        fi
-        echo "$latest"
+        echo "latest"
     else
         echo "${requested#v}"
     fi
@@ -134,7 +128,7 @@ download_opencode() {
     fi
 
     filename="opencode-${target}.tar.gz"
-    url="https://github.com/anomalyco/opencode/releases/download/v${version}/${filename}"
+    url="https://opencode.ai/update/api/${version}/cli/opencode/${filename}"
 
     tmp_dir="$(mktemp -d)"
     trap 'rm -rf "$tmp_dir"' EXIT

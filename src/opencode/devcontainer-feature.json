@@ -1,8 +1,8 @@
 {
     "name": "OpenCode",
     "id": "opencode",
-    "version": "0.1.3",
-    "description": "Installs the OpenCode CLI, seeds ~/.config/opencode/opencode.json, and ships helper scripts for working with the config.",
+    "version": "1.0.0",
+    "description": "Installs the OpenCode v2 CLI, seeds ~/.config/opencode/opencode.json, and ships helper scripts for working with the config.",
     "options": {
         "configTemplate": {
             "type": "string",
@@ -17,7 +17,7 @@
         "opencodeVersion": {
             "type": "string",
             "default": "latest",
-            "description": "Version of the OpenCode CLI to install (e.g. 1.0.180). Defaults to the latest GitHub release."
+            "description": "Version of the OpenCode CLI to install (e.g. 2.1.2). Defaults to the latest release."
         }
     },
     "installsAfter": [
